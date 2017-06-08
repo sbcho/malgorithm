@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		Scanner scan = new Scanner(System.in);
 		int x = scan.nextInt();
 		int y = scan.nextInt();
@@ -14,12 +14,9 @@ public class Main {
 		
 		for(int i = 0; i < x ; i++){
 			matrix[i] = scan.next().toCharArray();
-//			for(int j = 0; j < y ; j++){
-//				matrix[i] = scan.next().toCharArray();
-//			}
 		}
 		
-		for(int k = length-1; k > 0; k--){ 
+		for(int k = length-1; k >= 0; k--){ 
 			for(int i = 0; i < x - k ; i++){
 				for(int j = 0; j < y - k ; j++){
 					if(matrix[i][j] == matrix[i+k][j] && 
