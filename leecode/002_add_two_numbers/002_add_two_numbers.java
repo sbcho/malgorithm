@@ -27,14 +27,11 @@ public class Solution {
                 head.val %= 10;
             }
         }
-        if (l1.next == null && l2.next == null){
-            
-            if(carry >= 1){
-                head = new ListNode(carry);
-                tail.next = head;
-                tail = head;
-            }
-        }  
+        if(carry >= 1){
+            head = new ListNode(carry);
+            tail.next = head;
+            tail = head;
+        }
         return init;
     }
 }
