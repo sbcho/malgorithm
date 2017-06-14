@@ -40,9 +40,8 @@ public class Main
     
     if(quadrant1.contentEquals(quadrant2) && quadrant1.contentEquals(quadrant3) && quadrant1.contentEquals(quadrant4)){
       if(quadrant1 == "1") return "1";
-      else return "0";
-    } else {
-      return "(" + quadrant1 + quadrant2 + quadrant3 + quadrant4 +")";
-    }   
+      else if(quadrant1 == "0") return "0";
+    } 
+    return "(" + quadrant1 + quadrant2 + quadrant3 + quadrant4 +")";
   }
 }
