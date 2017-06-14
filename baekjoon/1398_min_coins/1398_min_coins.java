@@ -5,31 +5,37 @@ public class Main
   public static void main(String[] args)
   {
     Scanner scan = new Scanner(System.in);
-    int[] dwarf = new int[9];
-    for(int k = 0; k < dwarf.length; k++){
-        dwarf[k] = scan.nextInt();
-    }
-    int sum,x=0,y=0;
     
-    Arrays.sort(dwarf);
-    for(int i = 0; i < dwarf.length; i++){
-      for(int j = i+1; j < dwarf.length; j++){
-        sum = 0;
-        for(int k = 0; k < dwarf.length; k++){
-          if(k != i && k != j){
-            sum += dwarf[k];
-          }
-        }
-        if(sum == 100){
-          x = i;
-          y = j;
-        }
-      } 	 
+    int max_100 = 15;
+    int max_25 = 6;
+    int max_coins = 23;
+    long[] coins = new long[max_coins];
+    int k,i,j;
+    for(k = 0, i = 0, j = 0; k < max_coins; ){
+      if (i<=max_100) coins[k++] = (long) Math.pow(10,i);
+      if (i<=max_25) coins[k++] = (long) Math.pow(100,j)*25;
+      i++;
+      j++;
     }
-    for(int k = 0; k < dwarf.length; k++){
-      if(k != x && k != y){
-        System.out.println(dwarf[k]);
+    Arrays.sort(coins);
+    
+    int cases = scan.nextInt();
+    long price;
+    int coin_count;
+    
+    while(cases-- > 0){
+      price = scan.nextLong();
+      coin_count = 0;
+      k = max_coins-1;
+      while(price > 0){
+        if(price / coins[k] > 0){
+          coin_count += (int) (price / coins[k]);
+          price %= coins[k--];
+        } else {
+          k--;
+        }
       }
+      System.out.println(String.valueOf(coin_count));
     }
   }
 }
