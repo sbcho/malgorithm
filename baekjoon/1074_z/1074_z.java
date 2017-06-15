@@ -12,7 +12,7 @@ public class Main {
     long base = 0;
     
     long result = getPoint(r+1, c+1, N, base);
-    System.out.println(result);
+    System.out.println(result-1);
     
   }
 
@@ -22,15 +22,16 @@ public class Main {
     int quadrant = 0;
     long width = (int) Math.pow(2, N);
     if(i <= width){
-      if(j <= width) quadrant = 0;
-      if(j > width) quadrant = 1;
+      if(j <= width) quadrant = 1;
+      if(j > width) quadrant = 2;
     } else {
-      if(j <= width) quadrant = 2;
-      if(j > width) quadrant = 3;
+      if(j <= width) quadrant = 3;
+      if(j > width) quadrant = 4;
     }
+    if(N==0) return base+quadrant;
     
-    if(i <= 2 && j <= 2) return base+quadrant;
-    return getPoint(i-width, j-width, N, base+quadrant*width*width);
+    if(quadrant == 2 || quadrant == 4) j-=width;
+    if(quadrant == 3 || quadrant == 4) i-=width;
+    return getPoint(i, j, N, base+(quadrant-1)*width*width);
   }
-
 }
