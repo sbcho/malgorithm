@@ -8,7 +8,7 @@ public class Main {
 		
 		int N = scan.nextInt();
 		int reduction_cnt = 0;
-		long MAX_NUM = 9000000*1000 + 876543210;
+		long MAX_NUM = 987654321*10;
 
 		for(long i = 1; i <= MAX_NUM; i++){
 			if(N==0) {
