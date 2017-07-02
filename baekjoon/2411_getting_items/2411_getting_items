@@ -1,0 +1,52 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+
+public class Main{
+	
+	static int map[][];
+	static int item[][];
+	
+	public static void main(String[] args){
+
+		Scanner scan = new Scanner(System.in);
+		
+		int n = scan.nextInt();
+		int m = scan.nextInt();
+		int nItem = scan.nextInt();
+		int nBarrier = scan.nextInt();
+		
+		map = new int[n+1][m+1];
+        for(int i = 1; i < n+1; i++)
+			Arrays.fill(map[i], Integer.MIN_VALUE);
+		for(int i = 0; i < nItem ; i++)	
+			map[scan.nextInt()][scan.nextInt()] = -1;
+		for(int i = 0; i < nBarrier ; i++)
+			map[scan.nextInt()][scan.nextInt()] = -2;
+		map[n][m] = -1;
+        
+		int res = 1;
+		int[] pre = new int[]{1,1};
+		
+		for(int i = 1; i <= n ; i++){
+			for(int j = 1 ; j <= m ; j++){
+				if(map[i][j] == -1){
+					res *= solve(pre[0], pre[1], i, j);
+					pre[0] = i; pre[1] = j;
+				}
+			}
+		}
+		System.out.println(res);
+		
+	}
+
+	private static int solve(int i, int j, int k, int l) {
+		if(map[i][j] >= 0) return map[i][j];
+		if(map[i][j] == -2) return 0;
+		if(i == k && j == l) return 1;
+		map[i][j] = 0;
+		if(i+1 <= k) map[i][j] += solve(i+1, j, k, l);
+		if(j+1 <= l) map[i][j] += solve(i, j+1, k, l);
+		return map[i][j];
+	}
+}
