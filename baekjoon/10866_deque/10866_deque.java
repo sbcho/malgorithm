@@ -50,21 +50,21 @@ public class Main{
     		temp = scan.next();
     		switch(temp){
     			case "push_front" : queue.push_front(scan.nextInt());
-    				break;
+				break;
     			case "push_back" : queue.push_back(scan.nextInt());
-					break;
+				break;
     			case "pop_front" : System.out.println(queue.pop_front());
-    				break;
+				break;
     			case "pop_back" : System.out.println(queue.pop_back());
-					break;
+				break;
     			case "size" : System.out.println(queue.size());
-    				break;
+				break;
     			case "empty" : System.out.println(queue.empty());
-    				break;
+				break;
     			case "front" : System.out.println(queue.front());
-    				break;
+				break;
     			case "back" : System.out.println(queue.back());
-    				break;
+				break;
 			}
 		}
 	}
