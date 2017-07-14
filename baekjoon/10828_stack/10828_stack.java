@@ -39,15 +39,15 @@ public class Main{
     		temp = scan.next();
     		switch(temp){
     			case "push" : stack.push(scan.nextInt());
-    				break;
+					break;
     			case "pop" : System.out.println(stack.pop());
-    				break;
+					break;
     			case "size" : System.out.println(stack.size());
-    				break;
+					break;
     			case "empty" : System.out.println(stack.empty());
-    				break;
+					break;
     			case "top" : System.out.println(stack.top());
-				break;
+					break;
 			}
 		}
 	}
