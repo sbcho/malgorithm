@@ -47,8 +47,8 @@ public class Main{
     			case "empty" : System.out.println(stack.empty());
     				break;
     			case "top" : System.out.println(stack.top());
-					break;
-    		}
-    	}
+				break;
+			}
+		}
 	}
 }
