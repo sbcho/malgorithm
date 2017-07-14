@@ -65,7 +65,7 @@ public class Main{
     				break;
     			case "back" : System.out.println(queue.back());
     				break;
-    		}
-    	}
+			}
+		}
 	}
 }
